@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { Suspense, useState, useEffect } from "react"
 import { useCartStore } from "@/store/cartStore"
 import { createOrder } from "@/lib/firebase/orders"
 import { getCurrentUser } from "@/lib/firebase/auth"
@@ -8,6 +8,14 @@ import { db } from "@/lib/firebase/config"
 import { doc, getDoc } from "firebase/firestore"
 import type { User } from "firebase/auth"
 import { useRouter, useSearchParams } from "next/navigation"
+
+export default function CheckoutPage() {
+    return (
+        <Suspense fallback={null}>
+            <Checkout />
+        </Suspense>
+    )
+}
 
 interface AddressForm {
     fullName: string
@@ -29,7 +37,7 @@ const emptyForm: AddressForm = {
     zipCode: "",
 }
 
-export default function CheckoutPage() {
+function Checkout() {
     const searchParams = useSearchParams()
     const isCustom = searchParams.get("custom") === "true"
     const customOrderId = searchParams.get("orderId")
