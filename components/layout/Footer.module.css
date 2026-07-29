@@ -1,0 +1,104 @@
+.sigilFooter {
+  background: #0d0b09;
+  border-top: 1px solid rgba(184, 99, 47, 0.16);
+}
+
+.sigilBrandAccent {
+  background: linear-gradient(90deg, #b8632f, #e0975a 60%, #b8632f);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sigilLine {
+  fill: none;
+  stroke: rgba(184, 99, 47, 0.55);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.sigilRing {
+  transform-origin: 50% 50%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sigilRing {
+    animation: sigil-spin 32s linear infinite;
+  }
+  :global(.group):hover .sigilRing {
+    animation-duration: 6s;
+  }
+}
+
+@keyframes sigil-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.newsletterInput {
+  border: 1px solid rgba(184, 99, 47, 0.18);
+  background: rgba(184, 99, 47, 0.05);
+  transition: border-color 0.3s ease;
+}
+
+.newsletterInput:focus {
+  border-color: rgba(184, 99, 47, 0.55);
+}
+
+.newsletterButton {
+  position: relative;
+  overflow: hidden;
+  color: #0d0b09;
+  background: #ede7dd;
+  transition: color 0.4s ease;
+}
+
+.newsletterButton::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #b8632f, #e0975a, #b8632f);
+  background-size: 200% auto;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.newsletterButton:hover::before {
+  opacity: 1;
+  animation: molten-shift 2.5s linear infinite;
+}
+
+.newsletterButton svg {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes molten-shift {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.socialIcon {
+  border: 1px solid rgba(184, 99, 47, 0.15);
+  background: rgba(184, 99, 47, 0.04);
+  transition: all 0.3s ease;
+}
+
+.socialIcon:hover {
+  border-color: rgba(184, 99, 47, 0.5);
+  color: #e0975a;
+}
+
+.drip {
+  width: 0;
+  height: 1px;
+  background: #b8632f;
+  transition: width 0.3s ease;
+}
+
+:global(.group):hover .drip {
+  width: 100%;
+}

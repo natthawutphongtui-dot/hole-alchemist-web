@@ -1,0 +1,164 @@
+.hero {
+  background: #0d0b09;
+  min-height: calc(100vh - 5rem);
+}
+
+.heroGlow {
+  background:
+    radial-gradient(circle at 15% 40%, rgba(184, 99, 47, 0.16) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(107, 144, 128, 0.1) 0%, transparent 40%);
+}
+
+.sigilWatermark {
+  position: absolute;
+  border: 1px solid rgba(184, 99, 47, 0.12);
+  border-radius: 50%;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sigilWatermark {
+    animation: sigil-spin-slow 90s linear infinite;
+  }
+}
+
+@keyframes sigil-spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.eyebrow {
+  border: 1px solid rgba(184, 99, 47, 0.3);
+  background: rgba(184, 99, 47, 0.08);
+  color: #e0975a;
+}
+
+.accentText {
+  background: linear-gradient(90deg, #b8632f, #e0975a 60%, #b8632f);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.primaryButton {
+  position: relative;
+  overflow: hidden;
+  color: #0d0b09;
+  background: #ede7dd;
+  transition: transform 0.3s ease;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+}
+
+.primaryButton::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #b8632f, #e0975a, #b8632f);
+  background-size: 200% auto;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.primaryButton:hover::before {
+  opacity: 1;
+  animation: molten-shift 2.5s linear infinite;
+}
+
+.primaryButton span {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes molten-shift {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.outlineButton {
+  border: 1px solid rgba(184, 99, 47, 0.35);
+  color: #ede7dd;
+  transition: all 0.3s ease;
+}
+
+.outlineButton:hover {
+  border-color: rgba(184, 99, 47, 0.7);
+  background: rgba(184, 99, 47, 0.08);
+}
+
+.statDivider {
+  background: rgba(184, 99, 47, 0.2);
+}
+
+.frame {
+  border: 1px solid rgba(184, 99, 47, 0.2);
+  background: rgba(184, 99, 47, 0.04);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .frame {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.tag {
+  border: 1px solid rgba(184, 99, 47, 0.3);
+  background: rgba(13, 11, 9, 0.85);
+  color: #e0975a;
+  backdrop-filter: blur(6px);
+}
+
+.tagMuted {
+  border: 1px solid rgba(237, 231, 221, 0.15);
+  background: rgba(237, 231, 221, 0.06);
+  color: #c9bfae;
+  backdrop-filter: blur(6px);
+}
+
+.featuresSection {
+  background: #0d0b09;
+  border-top: 1px solid rgba(184, 99, 47, 0.12);
+}
+
+.featureCard {
+  border: 1px solid rgba(184, 99, 47, 0.12);
+  background: rgba(184, 99, 47, 0.03);
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  border-color: rgba(184, 99, 47, 0.4);
+  background: rgba(184, 99, 47, 0.06);
+  transform: translateY(-4px);
+}
+
+.featureIcon {
+  background: rgba(184, 99, 47, 0.1);
+  color: #e0975a;
+}
+
+.ctaSection {
+  position: relative;
+  background: #0d0b09;
+  border-top: 1px solid rgba(184, 99, 47, 0.16);
+  overflow: hidden;
+}
+
+.ctaWatermark {
+  color: rgba(237, 231, 221, 0.03);
+}

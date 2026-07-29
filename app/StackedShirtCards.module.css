@@ -1,0 +1,51 @@
+.stack {
+  position: relative;
+  width: 288px;
+  height: 288px;
+}
+
+@media (min-width: 768px) {
+  .stack {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(184, 99, 47, 0.2);
+  background: rgba(184, 99, 47, 0.04);
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+  will-change: transform;
+  touch-action: pan-y;
+}
+
+.cardTop {
+  cursor: grab;
+}
+
+.cardTop:active {
+  cursor: grabbing;
+}
+
+.cardImage {
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.hint {
+  position: absolute;
+  bottom: -2.25rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(168, 156, 138, 0.7);
+}
