@@ -1,12 +1,19 @@
 "use client"
 
-
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import { loginWithEmail, loginWithGoogle } from "@/lib/firebase/auth"
 import { useRouter, useSearchParams } from "next/navigation"
 import Link from "next/link"
 
 export default function LoginPage() {
+    return (
+        <Suspense fallback={null}>
+            <LoginForm />
+        </Suspense>
+    )
+}
+
+function LoginForm() {
     const searchParams = useSearchParams()
     const redirect = searchParams.get("redirect") ?? "/products"
     const router = useRouter()
